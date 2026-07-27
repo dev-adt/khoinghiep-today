@@ -23,6 +23,61 @@ export const AIChat = () => {
     return localStorage.getItem('khoinghiep_chat_model_override') || '';
   });
 
+  const [selectedAgent, setSelectedAgent] = useState('search'); // 'search', 'match', 'promote', 'startup'
+
+  const agents = [
+    {
+      id: 'search',
+      name: 'Tra cứu & Giới thiệu',
+      icon: 'ti-search',
+      color: '#DC2626',
+      desc: 'Giới thiệu DISC Vietnam, Khoinghiep.today, tra cứu thành viên & dự án.',
+      prompts: [
+        'Giới thiệu tổng quan về hệ sinh thái KHOINGHIEP.TODAY và DISC Vietnam.',
+        'Tra cứu danh sách các chuyên gia và nhà đầu tư tiêu biểu trong mạng lưới.',
+        'Quyền lợi khi đăng ký gói hội viên Platinum là gì?'
+      ]
+    },
+    {
+      id: 'match',
+      name: 'Kết nối Thành viên',
+      icon: 'ti-git-pull-request',
+      color: '#10B981',
+      desc: 'Gợi ý đối tác kinh doanh, cố vấn và nhà đầu tư tiềm năng.',
+      prompts: [
+        'Gợi ý cho tôi các đối tác đang cần hợp tác về Công nghệ AI & Chuyển đổi số.',
+        'Kết nối tôi với các Quỹ đầu tư khởi nghiệp trong cộng đồng.',
+        'Tìm kiếm nhà cung cấp / đối tác trong lĩnh vực Nông nghiệp công nghệ cao.'
+      ]
+    },
+    {
+      id: 'promote',
+      name: 'Quảng bá Doanh nghiệp',
+      icon: 'ti-speakerphone',
+      color: '#F59E0B',
+      desc: 'Viết hồ sơ doanh nghiệp, sản phẩm, bài truyền thông đa nền tảng.',
+      prompts: [
+        'Viết bài giới thiệu sản phẩm mới theo phong cách chuyên nghiệp để đăng lên trang chủ.',
+        'Soạn thảo Hồ sơ Năng lực (Company Profile) thu hút đối tác B2B.',
+        'Đề xuất chiến dịch truyền thông thương hiệu cho dự án khởi nghiệp.'
+      ]
+    },
+    {
+      id: 'startup',
+      name: 'Hỗ trợ Khởi nghiệp',
+      icon: 'ti-rocket',
+      color: '#06B6D4',
+      desc: 'Thẩm định ý tưởng, mô hình kinh doanh, tài chính & Pitch Deck gọi vốn.',
+      prompts: [
+        'Đánh giá sơ bộ ý tưởng khởi nghiệp Nông nghiệp thông minh của tôi.',
+        'Hướng dẫn xây dựng Khung mô hình kinh doanh Lean Canvas 9 bước.',
+        'Soạn thảo Dàn ý Pitch Deck 10 slide chuẩn bị gặp Nhà đầu tư.'
+      ]
+    }
+  ];
+
+  const currentAgentObj = agents.find(a => a.id === selectedAgent) || agents[0];
+
   const handleModelOverrideChange = (val) => {
     setSelectedModelOverride(val);
     localStorage.setItem('khoinghiep_chat_model_override', val);
@@ -412,6 +467,37 @@ export const AIChat = () => {
             </div>
           </div>
 
+          {/* MULTI-AGENT AI SELECTOR BAR */}
+          <div style={{ backgroundColor: 'var(--surface-0)', borderBottom: '1px solid var(--border)', padding: '6px 12px', display: 'flex', gap: '6px', overflowX: 'auto', flexShrink: 0 }}>
+            {agents.map((ag) => {
+              const isSelected = selectedAgent === ag.id;
+              return (
+                <button
+                  key={ag.id}
+                  onClick={() => setSelectedAgent(ag.id)}
+                  style={{
+                    padding: '5px 12px',
+                    borderRadius: '8px',
+                    border: isSelected ? `1.5px solid ${ag.color}` : '1px solid var(--border)',
+                    background: isSelected ? `${ag.color}15` : 'rgba(255,255,255,0.7)',
+                    color: isSelected ? ag.color : 'var(--text-primary)',
+                    fontWeight: isSelected ? 700 : 500,
+                    fontSize: '11.5px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <i className={`ti ${ag.icon}`} style={{ fontSize: '13px', color: ag.color }}></i>
+                  <span>{ag.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
           {/* Scrollable Messages Area */}
           <div id="chat-msgs" style={{ flex: 1, overflowY: 'auto', padding: '1.5rem' }}>
             <div className="bubble-container" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -422,13 +508,22 @@ export const AIChat = () => {
                 </div>
               ) : messages.length === 0 ? (
                 // Welcome Message
-                <div className="chat-bubble ai" style={{ alignSelf: 'flex-start', maxWidth: '85%', padding: '12px 16px', borderRadius: '12px', background: 'var(--surface-2)', color: 'var(--text-primary)', fontSize: '13px', lineHeight: '1.6', border: '1px solid var(--border-strong)', textAlign: 'left' }}>
-                  {t('ai_welcome_1')}<br/><br/>
-                  {t('ai_welcome_2')}
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '12px' }}>
-                    <button className="chip" onClick={() => handleSend(t('ai_suggestion_1_val'))} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '99px', border: '1px solid var(--border-strong)', background: 'rgba(12,35,64,0.06)', color: 'var(--text-primary)', cursor: 'pointer' }}>{t('ai_suggestion_1_lbl')}</button>
-                    <button className="chip" onClick={() => handleSend(t('ai_suggestion_2_val'))} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '99px', border: '1px solid var(--border-strong)', background: 'rgba(12,35,64,0.06)', color: 'var(--text-primary)', cursor: 'pointer' }}>{t('ai_suggestion_2_lbl')}</button>
-                    <button className="chip" onClick={() => handleSend(t('ai_suggestion_3_val'))} style={{ padding: '4px 10px', fontSize: '11px', borderRadius: '99px', border: '1px solid var(--border-strong)', background: 'rgba(12,35,64,0.06)', color: 'var(--text-primary)', cursor: 'pointer' }}>{t('ai_suggestion_3_lbl')}</button>
+                <div className="chat-bubble ai" style={{ alignSelf: 'flex-start', maxWidth: '85%', padding: '14px 18px', borderRadius: '14px', background: 'var(--surface-2)', color: 'var(--text-primary)', fontSize: '13px', lineHeight: '1.6', border: `1.5px solid ${currentAgentObj.color}40`, textAlign: 'left' }}>
+                  <div style={{ fontWeight: 700, color: currentAgentObj.color, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <i className={`ti ${currentAgentObj.icon}`}></i> {currentAgentObj.name}
+                  </div>
+                  <div>{currentAgentObj.desc} Hãy chọn hoặc gõ câu hỏi để bắt đầu tương tác:</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '12px' }}>
+                    {currentAgentObj.prompts.map((p, pIdx) => (
+                      <button 
+                        key={pIdx} 
+                        onClick={() => handleSend(p)} 
+                        style={{ padding: '8px 12px', fontSize: '12px', borderRadius: '8px', border: '1px solid var(--border-strong)', background: 'rgba(255,255,255,0.7)', color: 'var(--text-primary)', cursor: 'pointer', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '6px' }}
+                      >
+                        <i className="ti ti-chevron-right" style={{ color: currentAgentObj.color }}></i>
+                        <span>{p}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
               ) : (

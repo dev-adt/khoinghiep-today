@@ -12,6 +12,7 @@ export const Members = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedRoleFilter, setSelectedRoleFilter] = useState('all'); // all, enterprise, startup, mentor, investor
   const [selectedTier, setSelectedTier] = useState('');
   const [selectedIndustry, setSelectedIndustry] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -136,6 +137,15 @@ export const Members = () => {
       }
       if (selectedTier && m.tier !== selectedTier) return false;
       if (selectedIndustry && m.industry !== selectedIndustry) return false;
+      if (selectedRoleFilter !== 'all') {
+        const descLower = (m.desc || '').toLowerCase();
+        const indLower = (m.industry || '').toLowerCase();
+        const nameLower = (m.name || '').toLowerCase();
+        if (selectedRoleFilter === 'enterprise' && !indLower.includes('công ty') && !indLower.includes('bán lẻ') && !indLower.includes('công nghệ') && !nameLower.includes('công ty')) return false;
+        if (selectedRoleFilter === 'startup' && !descLower.includes('khởi nghiệp') && !descLower.includes('dự án') && !indLower.includes('khởi nghiệp') && !nameLower.includes('dự án')) return false;
+        if (selectedRoleFilter === 'mentor' && !descLower.includes('cố vấn') && !descLower.includes('chuyên gia') && !indLower.includes('cố vấn')) return false;
+        if (selectedRoleFilter === 'investor' && !descLower.includes('đầu tư') && !descLower.includes('quỹ') && !indLower.includes('tài chính') && !nameLower.includes('quỹ')) return false;
+      }
       return true;
     })
     .sort((a, b) => {
@@ -159,17 +169,53 @@ export const Members = () => {
       <Navbar />
 
       {/* Decorative background gradient blobs */}
-      <div style={{ position: 'fixed', top: '-20%', left: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(79,70,229,0.06) 0%, rgba(79,70,229,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
-      <div style={{ position: 'fixed', bottom: '-20%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(16,185,129,0.04) 0%, rgba(16,185,129,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
+      <div style={{ position: 'fixed', top: '-20%', left: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(220,38,38,0.06) 0%, rgba(220,38,38,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
+      <div style={{ position: 'fixed', bottom: '-20%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(245,158,11,0.04) 0%, rgba(245,158,11,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
 
       <div className="public-container" style={{ minHeight: '80vh', paddingBottom: '5rem', paddingTop: '2.5rem' }}>
         
         {/* Title and Header */}
-        <div style={{ textAlign: 'left', marginBottom: '2rem' }}>
+        <div style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
           <h1 style={{ fontFamily: 'var(--font-title)', fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '10px', margin: 0 }}>
             <i className="ti ti-users" style={{ color: 'var(--primary)' }}></i> {t('members_title')}
           </h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px', marginBlockEnd: 0 }}>{t('members_subtitle')}</p>
+        </div>
+
+        {/* ROLE TABS BAR */}
+        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', marginBottom: '1rem', paddingBottom: '4px' }}>
+          {[
+            { id: 'all', label: 'Tất cả thành viên', icon: 'ti-apps' },
+            { id: 'enterprise', label: 'Doanh nghiệp', icon: 'ti-building' },
+            { id: 'startup', label: 'Dự án Khởi nghiệp', icon: 'ti-rocket' },
+            { id: 'mentor', label: 'Chuyên gia & Cố vấn', icon: 'ti-user-star' },
+            { id: 'investor', label: 'Quỹ & Nhà đầu tư', icon: 'ti-chart-line' }
+          ].map((roleTab) => {
+            const isAct = selectedRoleFilter === roleTab.id;
+            return (
+              <button
+                key={roleTab.id}
+                onClick={() => { setSelectedRoleFilter(roleTab.id); setCurrentPage(1); }}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '99px',
+                  border: isAct ? '1.5px solid var(--primary)' : '1px solid var(--border-strong)',
+                  background: isAct ? 'var(--primary)' : 'var(--surface-2)',
+                  color: isAct ? '#fff' : 'var(--text-primary)',
+                  fontWeight: isAct ? 700 : 500,
+                  fontSize: '12px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <i className={`ti ${roleTab.icon}`}></i> {roleTab.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Filters bar */}

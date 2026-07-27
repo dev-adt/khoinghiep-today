@@ -8,14 +8,14 @@
   --font-title: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  /* Color Tokens (Shared Brand Palette) */
-  --primary: #0284C7;
-  --primary-glow: rgba(2, 132, 199, 0.25);
-  --primary-dark: #0369A1;
-  --primary-light: #38BDF8;
+  /* Color Tokens (Red & Gold Brand Palette matching logo) */
+  --primary: #DC2626;
+  --primary-glow: rgba(220, 38, 38, 0.25);
+  --primary-dark: #991B1B;
+  --primary-light: #EF4444;
   
-  --neon-cyan: #0EA5E9;
-  --neon-glow: rgba(14, 165, 233, 0.2);
+  --neon-cyan: #E11D48;
+  --neon-glow: rgba(225, 29, 72, 0.2);
 
   --emerald: #10B981;
   --emerald-bg: rgba(16, 185, 129, 0.1);
@@ -25,35 +25,35 @@
   --amber-bg: rgba(245, 158, 11, 0.1);
   --amber-dark: #D97706;
 
-  --rose: #EF4444;
-  --rose-bg: rgba(239, 68, 68, 0.1);
-  --rose-dark: #DC2626;
+  --rose: #DC2626;
+  --rose-bg: rgba(220, 38, 38, 0.1);
+  --rose-dark: #991B1B;
 
-  /* Default Theme: Premium Ocean/Sky Blue (Light, Fresh) */
-  --bg-base: #EBF4FC;
+  /* Default Theme: Premium Cream & Warm Rose (Light, Warm, Prestigious) */
+  --bg-base: #FFF9F5;
   --surface-2: #FFFFFF;
-  --surface-0: #D8ECFD;
-  --surface-1: #C2E0FC;
+  --surface-0: #FEF3C7;
+  --surface-1: #FEE2E2;
   
-  --text-primary: #0C2340;
-  --text-secondary: #2C4A6F;
-  --text-muted: #5C7B9E;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
   
-  --border: rgba(12, 35, 64, 0.08);
-  --border-strong: rgba(12, 35, 64, 0.16);
+  --border: rgba(220, 38, 38, 0.08);
+  --border-strong: rgba(220, 38, 38, 0.18);
 
   /* Glassmorphism Parameters */
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(12, 35, 64, 0.08);
-  --glass-glow: rgba(2, 132, 199, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(220, 38, 38, 0.12);
+  --glass-glow: rgba(220, 38, 38, 0.05);
 
   /* Shared parameters */
   --radius: 12px;
   --radius-lg: 20px;
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --shadow: 0 10px 30px -10px rgba(12, 35, 64, 0.08);
-  --shadow-lg: 0 20px 40px -15px rgba(12, 35, 64, 0.12);
-  --shadow-light: 0 8px 24px -8px rgba(12, 35, 64, 0.04);
+  --shadow: 0 10px 30px -10px rgba(185, 28, 28, 0.1);
+  --shadow-lg: 0 20px 40px -15px rgba(185, 28, 28, 0.15);
+  --shadow-light: 0 8px 24px -8px rgba(185, 28, 28, 0.05);
 }
 
 /* Light Theme Variables (Applied to admin panel & light-theme elements) */

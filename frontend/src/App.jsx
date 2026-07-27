@@ -15,6 +15,7 @@ import Events from './pages/Events';
 import AIChat from './pages/AIChat';
 import Search from './pages/Search';
 import Guide from './pages/Guide';
+import Training from './pages/Training';
 import MemberDashboard from './pages/MemberDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminMembers from './pages/AdminMembers';
@@ -51,6 +52,7 @@ function App() {
             <Route path="/ai-chat" element={<AIChat />} />
             <Route path="/search" element={<Search />} />
             <Route path="/guide" element={<Guide />} />
+            <Route path="/training" element={<Training />} />
 
             {/* Tuyến đường bảo vệ dành cho Hội viên */}
             <Route 

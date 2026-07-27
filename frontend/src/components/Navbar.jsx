@@ -41,8 +41,10 @@ export const Navbar = () => {
     <>
       <nav style={{ zIndex: 1000 }}>
       <Link to="/" className="nav-logo" style={{ textDecoration: 'none' }}>
-        <div className="nav-logo-icon"><img src="/favicon.png" alt="Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></div>
-        KHOINGHIEP.TODAY
+        <div className="nav-logo-icon" style={{ background: '#fff', border: '1px solid rgba(220, 38, 38, 0.3)', borderRadius: '50%', padding: '2px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img src="/logo_khoi_nghiep.jpg" alt="Logo" style={{ width: '26px', height: '26px', objectFit: 'contain', borderRadius: '50%' }} />
+        </div>
+        <span style={{ color: 'var(--primary)', fontWeight: 800 }}>KHOINGHIEP.TODAY</span>
       </Link>
 
       <div className="nav-links">
@@ -63,6 +65,7 @@ export const Navbar = () => {
         </div>
 
         <Link to="/events" className="nav-link">{t('menu_events')}</Link>
+        <Link to="/training" className="nav-link">Đào tạo & Tri thức</Link>
         <Link to="/ai-chat" className="nav-link">{t('menu_ai')}</Link>
         <Link to="/guide" className="nav-link">{t('menu_guide')}</Link>
       </div>

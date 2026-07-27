@@ -11,10 +11,10 @@ export const Footer = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: 'var(--font-title)', fontSize: '20px', fontWeight: '700', color: '#E2F0FF', marginBottom: '1.5rem' }}>
-              <div style={{ width: '34px', height: '34px', borderRadius: '8px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>
-                <img src="/favicon.png" alt="Logo" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#fff', border: '1px solid rgba(220,38,38,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>
+                <img src="/logo_khoi_nghiep.jpg" alt="Logo" style={{ width: '28px', height: '28px', objectFit: 'contain', borderRadius: '50%' }} />
               </div>
-              Khoinghiep.today
+              KHOINGHIEP.TODAY
             </div>
             <p style={{ lineHeight: '1.7', marginBottom: '1.5rem', color: '#93B4D4' }}>
               {t('footer_desc')}
@@ -31,6 +31,7 @@ export const Footer = () => {
             <h4 style={{ color: '#E2F0FF', fontFamily: 'var(--font-title)', fontSize: '14px', fontWeight: '600', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('footer_services')}</h4>
             <Link to="/members" style={{ display: 'block', padding: '6px 0', color: '#93B4D4', textDecoration: 'none', transition: 'color 0.2s' }}>{t('menu_members')}</Link>
             <Link to="/posts" style={{ display: 'block', padding: '6px 0', color: '#93B4D4', textDecoration: 'none', transition: 'color 0.2s' }}>{t('menu_marketplace')}</Link>
+            <Link to="/training" style={{ display: 'block', padding: '6px 0', color: '#93B4D4', textDecoration: 'none', transition: 'color 0.2s' }}>Đào tạo & Tri thức</Link>
             <Link to="/ai-chat" style={{ display: 'block', padding: '6px 0', color: '#93B4D4', textDecoration: 'none', transition: 'color 0.2s' }}>{t('menu_ai')}</Link>
           </div>
           <div>

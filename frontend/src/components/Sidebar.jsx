@@ -82,10 +82,12 @@ export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <Link to="/admin-dashboard" className="sb-logo" style={{ textDecoration: 'none' }}>
-        <div className="sb-logo-icon"><img src="/favicon.png" alt="Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></div>
+        <div className="sb-logo-icon" style={{ background: '#fff', border: '1px solid rgba(220, 38, 38, 0.3)', borderRadius: '50%', padding: '2px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img src="/logo_khoi_nghiep.jpg" alt="Logo" style={{ width: '22px', height: '22px', objectFit: 'contain', borderRadius: '50%' }} />
+        </div>
         <div>
-          <div className="sb-logo-name">KHOINGHIEP.TODAY</div>
-          <div className="sb-logo-sub">Hội viên doanh nghiệp</div>
+          <div className="sb-logo-name" style={{ color: 'var(--primary)', fontWeight: 800 }}>KHOINGHIEP.TODAY</div>
+          <div className="sb-logo-sub">Hệ sinh thái Đổi mới sáng tạo & Khởi nghiệp</div>
         </div>
       </Link>
       

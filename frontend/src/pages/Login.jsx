@@ -80,8 +80,8 @@ export const Login = () => {
       <div style={{ width: '100%', maxWidth: '420px', padding: '1.5rem', zIndex: 10 }}>
         <div className="glass-card" style={{ padding: '2.5rem 2.25rem', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginBottom: '2rem', textAlign: 'center' }}>
-            <div className="logo-icon" style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', boxShadow: '0 8px 20px var(--primary-glow)' }}>
-              <img src="/favicon.png" alt="Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+            <div className="logo-icon" style={{ width: '54px', height: '54px', borderRadius: '50%', background: '#fff', border: '2px solid rgba(220, 38, 38, 0.4)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', boxShadow: '0 8px 20px var(--primary-glow)' }}>
+              <img src="/logo_khoi_nghiep.jpg" alt="Logo" style={{ width: '42px', height: '42px', objectFit: 'contain', borderRadius: '50%' }} />
             </div>
             <div>
               <div className="logo-name" style={{ fontFamily: 'var(--font-title)', fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)' }}>Khoinghiep.today AI</div>
