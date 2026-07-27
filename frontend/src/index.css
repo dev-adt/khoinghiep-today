@@ -58,34 +58,34 @@
 
 /* Light Theme Variables (Applied to admin panel & light-theme elements) */
 .light-theme, body.light-theme, body:not(.dark-theme):not(.public-body) {
-  --bg-base: #F0F7FF;
+  --bg-base: #FAF6F3;
   --surface-2: #FFFFFF;
-  --surface-0: #E6F1FC;
-  --surface-1: #D8EBFD;
+  --surface-0: #FEF3C7;
+  --surface-1: #FEE2E2;
   
-  --text-primary: #0C2340;
-  --text-secondary: #2C4A6F;
-  --text-muted: #5C7B9E;
+  --text-primary: #1F2937;
+  --text-secondary: #374151;
+  --text-muted: #6B7280;
   
-  --border: #D8EBFD;
-  --border-strong: #C2DFFB;
+  --border: rgba(220, 38, 38, 0.08);
+  --border-strong: rgba(220, 38, 38, 0.18);
   --shadow: var(--shadow-light);
 }
 
-/* Specific Dark theme overrides for explicit wrappers */
+/* Public Body & Dark Theme overrides for Startup theme */
 .dark-theme, body.dark-theme, body.public-body {
-  --bg-base: #EBF4FC;
+  --bg-base: #FAF6F3;
   --surface-2: #FFFFFF;
-  --surface-0: #D8ECFD;
-  --surface-1: #C2E0FC;
+  --surface-0: #FEF3C7;
+  --surface-1: #FEE2E2;
   
-  --text-primary: #0C2340;
-  --text-secondary: #2C4A6F;
-  --text-muted: #5C7B9E;
+  --text-primary: #1F2937;
+  --text-secondary: #374151;
+  --text-muted: #6B7280;
   
-  --border: rgba(12, 35, 64, 0.08);
-  --border-strong: rgba(12, 35, 64, 0.16);
-  --shadow: 0 10px 30px -10px rgba(12, 35, 64, 0.08);
+  --border: rgba(220, 38, 38, 0.08);
+  --border-strong: rgba(220, 38, 38, 0.18);
+  --shadow: 0 10px 30px -10px rgba(185, 28, 28, 0.08);
 }
 
 /* BASE STYLING */

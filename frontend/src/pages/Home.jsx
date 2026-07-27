@@ -208,8 +208,8 @@ export const Home = () => {
       <Navbar />
 
       {/* Decor background blobs */}
-      <div style={{ position: 'fixed', top: '-10%', left: '-5%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(30,136,229,0.08) 0%, rgba(30,136,229,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
-      <div style={{ position: 'fixed', bottom: '-10%', right: '-5%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, rgba(0,229,255,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
+      <div style={{ position: 'fixed', top: '-10%', left: '-5%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(220,38,38,0.06) 0%, rgba(220,38,38,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
+      <div style={{ position: 'fixed', bottom: '-10%', right: '-5%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0) 70%)', zIndex: -1, pointerEvents: 'none', borderRadius: '50%' }}></div>
 
       <div className="public-container">
         
