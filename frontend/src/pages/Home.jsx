@@ -196,11 +196,11 @@ export const Home = () => {
     return t('btn_join_now');
   };
 
-  // Demo images for trade opportunity cards - ảnh Đồ Sơn thực tế
+  // Demo images for trade opportunity cards - ảnh Khoinghiep.today thực tế
   const demoImages = [
-    '/images/doson_event.png',    // sự kiện kết nối doanh nghiệp
-    '/images/doson_seafood.png',  // hải sản đặc sản Đồ Sơn
-    '/images/doson_tourism.png'   // du lịch kết nối
+    '/images/startup_event.png',    // sự kiện kết nối doanh nghiệp
+    '/images/agritech_project.png',  // hải sản đặc sản Khoinghiep.today
+    '/images/aitech_solution.png'   // du lịch kết nối
   ];
 
   return (
@@ -237,7 +237,7 @@ export const Home = () => {
           
           <div className="hero-right float-effect" style={{ flex: '1', minWidth: '320px', display: 'flex', justifyContent: 'center' }}>
             <div className="hero-img-wrap">
-              <img src="/images/hero_network.png" alt="Mạng lưới kết nối Đồ Sơn" />
+              <img src="/images/hero_network.png" alt="Mạng lưới kết nối Khoinghiep.today" />
               <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', padding: '10px 14px', borderRadius: 'var(--radius)', border: '1px solid rgba(12,35,64,0.1)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--emerald)', animation: 'pulse 2s infinite' }}></div>
                 <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-primary)' }}>{t('hero_realtime')}</span>
@@ -302,6 +302,49 @@ export const Home = () => {
           </div>
         </section>
 
+        {/* MULTI-AGENT AI ENGINE SECTION */}
+        <section id="ai-engine" style={{ marginBottom: '5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>Trái tim của hệ sinh thái</div>
+            <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '32px', fontWeight: 700, color: 'var(--text-primary)' }}>Lõi Trợ Lý Trí Tuệ Nhân Tạo Multi-Agent</h2>
+            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', maxWidth: '680px', margin: '8px auto 0' }}>Khoinghiep.today tích hợp mạng lưới trợ lý AI chuyên trách phối hợp để phục vụ toàn diện cho thành viên, doanh nghiệp và dự án khởi nghiệp.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(79, 70, 229, 0.2)', textAlign: 'left' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(79, 70, 229, 0.1)', color: '#4F46E5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
+                <i className="ti ti-info-circle"></i>
+              </div>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Giới thiệu & Tra cứu</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Giới thiệu hệ sinh thái DISC Vietnam & Khoinghiep.today; Hướng dẫn quyền lợi thành viên; Tra cứu thông tin chuyên gia, doanh nghiệp, tin tức & sự kiện.</p>
+            </div>
+
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.2)', textAlign: 'left' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.1)', color: '#10B981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
+                <i className="ti ti-git-pull-request"></i>
+              </div>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Kết nối thành viên</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Phân tích nhu cầu hợp tác; Gợi ý đối tác, khách hàng, nhà cung cấp hoặc nhà đầu tư tiềm năng; Kết nối người có ý tưởng với người có nguồn lực.</p>
+            </div>
+
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.2)', textAlign: 'left' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(245, 158, 11, 0.1)', color: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
+                <i className="ti ti-speakerphone"></i>
+              </div>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Quảng bá doanh nghiệp</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Hỗ trợ soạn thảo hồ sơ năng lực doanh nghiệp, viết bài giới thiệu sản phẩm/dịch vụ, biên dịch đa ngôn ngữ và đề xuất chiến dịch truyền thông.</p>
+            </div>
+
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(6, 182, 212, 0.2)', textAlign: 'left' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(6, 182, 212, 0.1)', color: '#06B6D4', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
+                <i className="ti ti-rocket"></i>
+              </div>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Hỗ trợ Khởi nghiệp</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Đồng hành đánh giá ý tưởng, xác định mô hình kinh doanh, lập kế hoạch tài chính, xây dựng Pitch Deck chuẩn bị gọi vốn và luyện tập phản biện.</p>
+            </div>
+          </div>
+        </section>
+
         {/* LATEST OPPORTUNITIES SECTION */}
         <section id="posts" style={{ marginBottom: '5rem' }}>
           <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
@@ -324,7 +367,7 @@ export const Home = () => {
                 const dateStr = p.created_at ? new Date(p.created_at).toLocaleDateString('vi-VN') : '11/06/2026';
                 const hasValidImage = p.image_url && p.image_url !== 'null' && p.image_url !== 'undefined' && p.image_url.trim() !== '';
                 const imgUrl = hasValidImage ? p.image_url : demoImages[idx % demoImages.length];
-                const companyName = p.company_name || 'Đồ Sơn Member';
+                const companyName = p.company_name || 'Khoinghiep.today Member';
                 return (
                   <div className="opp-card" key={p.id} style={{ position: 'relative' }}>
                     {p.is_featured === 1 && (
@@ -468,7 +511,7 @@ export const Home = () => {
                       </div>
                       <h3 className="opp-title" style={{ minHeight: 'unset', marginBottom: '8px', color: 'var(--text-primary)' }}>{e.title}</h3>
                       <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-calendar"></i> Ngày: {dateStr}</div>
-                      <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-users"></i> Tổ chức: {e.organizer || 'Đồ Sơn'}</div>
+                      <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-users"></i> Tổ chức: {e.organizer || 'Khoinghiep.today'}</div>
                       {!token && (
                         <div style={{ fontSize: '11px', color: 'var(--rose)', marginTop: '8px', background: 'rgba(244,63,94,0.05)', padding: '6px', borderRadius: '4px', border: '1px dashed rgba(244,63,94,0.15)' }}>
                           <i className="ti ti-lock"></i> {t('login_required_location')}
@@ -573,7 +616,7 @@ export const Home = () => {
               </div>
               <div style={{ marginBottom: '14px' }}>
                 <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--amber-dark)', fontWeight: 700 }}>{t('label_organizer')}</span>
-                <div style={{ fontSize: '13px', color: 'var(--text-primary)', marginTop: '2px' }}>{selectedEvent.organizer || 'Đồ Sơn'}</div>
+                <div style={{ fontSize: '13px', color: 'var(--text-primary)', marginTop: '2px' }}>{selectedEvent.organizer || 'Khoinghiep.today'}</div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
                 <div>

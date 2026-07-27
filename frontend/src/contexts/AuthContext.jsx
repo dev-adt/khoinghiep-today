@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
@@ -11,10 +11,10 @@ export const AuthProvider = ({ children }) => {
   // Khôi phục phiên làm việc khi load trang
   useEffect(() => {
     const checkAuth = async () => {
-      const adminToken = localStorage.getItem('doson_admin_token');
-      const adminUserStr = localStorage.getItem('doson_admin_user');
-      const memberToken = localStorage.getItem('doson_member_token');
-      const memberUserStr = localStorage.getItem('doson_member_user');
+      const adminToken = localStorage.getItem('khoinghiep_admin_token');
+      const adminUserStr = localStorage.getItem('khoinghiep_admin_user');
+      const memberToken = localStorage.getItem('khoinghiep_member_token');
+      const memberUserStr = localStorage.getItem('khoinghiep_member_user');
 
       if (adminToken && adminUserStr) {
         try {
@@ -36,8 +36,8 @@ export const AuthProvider = ({ children }) => {
           console.error("Admin session verification failed", e);
         }
         // Nếu token hết hạn hoặc lỗi, dọn dẹp
-        localStorage.removeItem('doson_admin_token');
-        localStorage.removeItem('doson_admin_user');
+        localStorage.removeItem('khoinghiep_admin_token');
+        localStorage.removeItem('khoinghiep_admin_user');
       }
 
       if (memberToken && memberUserStr) {
@@ -60,8 +60,8 @@ export const AuthProvider = ({ children }) => {
           console.error("Member session verification failed", e);
         }
         // Nếu token hết hạn hoặc lỗi, dọn dẹp
-        localStorage.removeItem('doson_member_token');
-        localStorage.removeItem('doson_member_user');
+        localStorage.removeItem('khoinghiep_member_token');
+        localStorage.removeItem('khoinghiep_member_user');
       }
 
       // Fallback về guest
@@ -91,18 +91,18 @@ export const AuthProvider = ({ children }) => {
 
     if (data.role === 'admin') {
       setUser(data.admin);
-      localStorage.setItem('doson_admin_token', data.token);
-      localStorage.setItem('doson_admin_user', JSON.stringify(data.admin));
+      localStorage.setItem('khoinghiep_admin_token', data.token);
+      localStorage.setItem('khoinghiep_admin_user', JSON.stringify(data.admin));
       // Dọn dẹp token member nếu có
-      localStorage.removeItem('doson_member_token');
-      localStorage.removeItem('doson_member_user');
+      localStorage.removeItem('khoinghiep_member_token');
+      localStorage.removeItem('khoinghiep_member_user');
     } else if (data.role === 'member') {
       setUser(data.user);
-      localStorage.setItem('doson_member_token', data.token);
-      localStorage.setItem('doson_member_user', JSON.stringify(data.user));
+      localStorage.setItem('khoinghiep_member_token', data.token);
+      localStorage.setItem('khoinghiep_member_user', JSON.stringify(data.user));
       // Dọn dẹp token admin nếu có
-      localStorage.removeItem('doson_admin_token');
-      localStorage.removeItem('doson_admin_user');
+      localStorage.removeItem('khoinghiep_admin_token');
+      localStorage.removeItem('khoinghiep_admin_user');
     }
 
     return data;
@@ -122,14 +122,14 @@ export const AuthProvider = ({ children }) => {
         });
       }
     } catch (e) {
-      console.error("Logout API call failed", e);
+          console.error("Logout API call failed", e);
     }
 
     // Luôn xóa local storage và reset state kể cả khi gọi API lỗi
-    localStorage.removeItem('doson_admin_token');
-    localStorage.removeItem('doson_admin_user');
-    localStorage.removeItem('doson_member_token');
-    localStorage.removeItem('doson_member_user');
+    localStorage.removeItem('khoinghiep_admin_token');
+    localStorage.removeItem('khoinghiep_admin_user');
+    localStorage.removeItem('khoinghiep_member_token');
+    localStorage.removeItem('khoinghiep_member_user');
     
     setRole('guest');
     setUser(null);
@@ -137,10 +137,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const setGuestMode = () => {
-    localStorage.removeItem('doson_admin_token');
-    localStorage.removeItem('doson_admin_user');
-    localStorage.removeItem('doson_member_token');
-    localStorage.removeItem('doson_member_user');
+    localStorage.removeItem('khoinghiep_admin_token');
+    localStorage.removeItem('khoinghiep_admin_user');
+    localStorage.removeItem('khoinghiep_member_token');
+    localStorage.removeItem('khoinghiep_member_user');
     setRole('guest');
     setUser(null);
     setToken(null);

@@ -1,6 +1,6 @@
 # Hướng Dẫn Triển Khai (Deploy) Lên VPS Lần Đầu
 
-Tài liệu này hướng dẫn chi tiết cách triển khai hệ thống **Đồ Sơn Today** lên Linux VPS của bạn chạy tại cổng **3013** dưới tên miền **doson.today**.
+Tài liệu này hướng dẫn chi tiết cách triển khai hệ thống **KHOINGHIEP.TODAY** lên Linux VPS của bạn chạy tại cổng **3013** dưới tên miền **khoinghiep.today**.
 
 ---
 
@@ -49,9 +49,9 @@ sudo mysql
 
 Chạy các câu lệnh sau để tạo Cơ sở dữ liệu và tài khoản truy cập:
 ```sql
-CREATE DATABASE IF NOT EXISTS doson_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'doson_user'@'localhost' IDENTIFIED BY 'MatKhauBaoMatCuaBan123!';
-GRANT ALL PRIVILEGES ON doson_db.* TO 'doson_user'@'localhost';
+CREATE DATABASE IF NOT EXISTS khoinghiep_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'khoinghiep_user'@'localhost' IDENTIFIED BY 'MatKhauBaoMatCuaBan123!';
+GRANT ALL PRIVILEGES ON khoinghiep_db.* TO 'khoinghiep_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
@@ -62,16 +62,16 @@ EXIT;
 
 ## 3. Sao chép Mã nguồn lên VPS & Cấu hình môi trường
 
-1. Đưa mã nguồn lên thư mục `/var/www/doson-today` trên VPS (sử dụng Git Clone hoặc công cụ SFTP/MobaXterm).
+1. Đưa mã nguồn lên thư mục `/var/www/khoinghiep-today` trên VPS (sử dụng Git Clone hoặc công cụ SFTP/MobaXterm).
    ```bash
-   sudo mkdir -p /var/www/doson-today
-   sudo chown -R $USER:$USER /var/www/doson-today
+   sudo mkdir -p /var/www/khoinghiep-today
+   sudo chown -R $USER:$USER /var/www/khoinghiep-today
    # Clone hoặc tải code vào đây
    ```
 
 2. Tạo file môi trường `.env`:
    ```bash
-   cd /var/www/doson-today
+   cd /var/www/khoinghiep-today
    cp .env.example .env
    nano .env
    ```
@@ -79,13 +79,13 @@ EXIT;
 3. Điền thông tin cấu hình vào `.env`:
    ```env
    PORT=3013
-   SITE_URL=https://doson.today
-   ALLOWED_ORIGIN=https://doson.today
+   SITE_URL=https://khoinghiep.today
+   ALLOWED_ORIGIN=https://khoinghiep.today
 
    DB_HOST=localhost
    DB_PORT=3306
-   DB_NAME=doson_db
-   DB_USER=doson_user
+   DB_NAME=khoinghiep_db
+   DB_USER=khoinghiep_user
    DB_PASSWORD=MatKhauBaoMatCuaBan123! # Mật khẩu bạn đã tạo ở Bước 2
 
    # Cấu hình API Key AI (Điền key nếu sử dụng AI Chatbot)
@@ -96,7 +96,7 @@ EXIT;
 
 4. Import cấu trúc DB vào database:
    ```bash
-   mysql -u doson_user -p doson_db < schema.sql
+   mysql -u khoinghiep_user -p khoinghiep_db < schema.sql
    # Nhập mật khẩu database của bạn
    ```
 
@@ -106,17 +106,17 @@ EXIT;
 
 1. Cài đặt thư viện cho Backend:
    ```bash
-   cd /var/www/doson-today
+   cd /var/www/khoinghiep-today
    npm install --production
    ```
 
 2. Cài đặt thư viện & Build Frontend sang thư mục tĩnh `public`:
    ```bash
-   cd /var/www/doson-today/frontend
+   cd /var/www/khoinghiep-today/frontend
    npm install
    npm run build
    ```
-   *Lệnh `npm run build` sẽ tự động biên dịch toàn bộ mã nguồn Frontend React/Vite và xuất bản sang thư mục `/var/www/doson-today/public` để Backend phục vụ trực tiếp.*
+   *Lệnh `npm run build` sẽ tự động biên dịch toàn bộ mã nguồn Frontend React/Vite và xuất bản sang thư mục `/var/www/khoinghiep-today/public` để Backend phục vụ trực tiếp.*
 
 ---
 
@@ -124,7 +124,7 @@ EXIT;
 Chúng ta sẽ sử dụng file cấu hình `ecosystem.config.js` đã được thiết lập sẵn chạy trên cổng **3013**:
 
 ```bash
-cd /var/www/doson-today
+cd /var/www/khoinghiep-today
 pm2 start ecosystem.config.js
 ```
 
@@ -136,24 +136,24 @@ pm2 save
 ```
 
 ### Các lệnh quản trị PM2 hữu ích:
-- Xem log hoạt động: `pm2 logs doson-today`
+- Xem log hoạt động: `pm2 logs khoinghiep-today`
 - Xem trạng thái: `pm2 status`
-- Khởi động lại: `pm2 restart doson-today`
+- Khởi động lại: `pm2 restart khoinghiep-today`
 
 ---
 
 ## 6. Cấu hình Nginx Proxy & Cấp chứng chỉ SSL miễn phí
 
-1. Tạo file cấu hình Nginx cho tên miền `doson.today`:
+1. Tạo file cấu hình Nginx cho tên miền `khoinghiep.today`:
    ```bash
-   sudo nano /etc/nginx/sites-available/doson
+   sudo nano /etc/nginx/sites-available/khoinghiep
    ```
 
 2. Copy nội dung cấu hình từ file `nginx.conf` đã được thiết lập trong mã nguồn (hoặc dán đoạn dưới đây vào):
    ```nginx
    server {
        listen 80;
-       server_name doson.today www.doson.today;
+       server_name khoinghiep.today www.khoinghiep.today;
 
        # Nginx Gzip nén dữ liệu
        gzip on;
@@ -175,14 +175,14 @@ pm2 save
 
        # Phục vụ thư mục tĩnh public của Frontend SPA
        location / {
-           root  /var/www/doson-today/public;
+           root  /var/www/khoinghiep-today/public;
            index index.html;
            try_files $uri $uri/ /index.html;
        }
 
        # Cache file tĩnh
        location ~* \.(jpg|jpeg|png|gif|ico|css|js|woff2)$ {
-           root    /var/www/doson-today/public;
+           root    /var/www/khoinghiep-today/public;
            expires 30d;
            add_header Cache-Control "public, immutable";
        }
@@ -191,7 +191,7 @@ pm2 save
 
 3. Kích hoạt cấu hình Nginx & khởi động lại:
    ```bash
-   sudo ln -s /etc/nginx/sites-available/doson /etc/nginx/sites-enabled/
+   sudo ln -s /etc/nginx/sites-available/khoinghiep /etc/nginx/sites-enabled/
    # Kiểm tra cú pháp xem có bị lỗi không
    sudo nginx -t
    # Nếu báo Successful, tải lại Nginx
@@ -199,10 +199,10 @@ pm2 save
    ```
 
 4. Cấp chứng chỉ SSL HTTPS tự động miễn phí bằng Let's Encrypt:
-   *Đảm bảo bạn đã trỏ địa chỉ IP của VPS về tên miền `doson.today` và `www.doson.today` trên trang quản lý DNS tên miền.*
+   *Đảm bảo bạn đã trỏ địa chỉ IP của VPS về tên miền `khoinghiep.today` và `www.khoinghiep.today` trên trang quản lý DNS tên miền.*
    ```bash
-   sudo certbot --nginx -d doson.today -d www.doson.today
+   sudo certbot --nginx -d khoinghiep.today -d www.khoinghiep.today
    ```
-   *Làm theo hướng dẫn trên màn hình (chọn tự động redirect từ HTTP sang HTTPS). Khi hoàn tất, trang web của bạn sẽ tự động bảo mật HTTPS và truy cập mượt mà tại địa chỉ [https://doson.today](https://doson.today).*
+   *Làm theo hướng dẫn trên màn hình (chọn tự động redirect từ HTTP sang HTTPS). Khi hoàn tất, trang web của bạn sẽ tự động bảo mật HTTPS và truy cập mượt mà tại địa chỉ [https://khoinghiep.today](https://khoinghiep.today).*
 
 Chúc bạn triển khai dự án thành công!

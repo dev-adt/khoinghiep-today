@@ -1,6 +1,6 @@
 ﻿# BizHub AI — Hệ thống Kết nối Doanh nghiệp & Trợ lý AI
 
-BizHub Đồ Sơn là nền tảng kết nối giao thương B2B số hóa, chia sẻ cơ hội hợp tác đầu tư và tích hợp Trợ lý AI nghiệp vụ thông minh 24/7. Dự án hỗ trợ phân hạng thành viên (Silver, Gold, Platinum) linh hoạt và đa ngôn ngữ tự động (Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Nhật).
+KHOINGHIEP.TODAY là hệ sinh thái đổi mới sáng tạo và hỗ trợ khởi nghiệp dành cho doanh nhân họ Đỗ (Đậu) Việt Nam và đối tác, chia sẻ cơ hội hợp tác đầu tư và tích hợp Trợ lý AI nghiệp vụ thông minh 24/7. Dự án hỗ trợ phân hạng thành viên (Silver, Gold, Platinum) linh hoạt và đa ngôn ngữ tự động (Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Nhật).
 
 Dưới đây là tài liệu chi tiết giúp bạn cài đặt, phát triển và sao chép (clone) dự án này một cách nhanh chóng nhất.
 

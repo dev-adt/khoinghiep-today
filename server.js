@@ -594,22 +594,22 @@ app.post('/api/forgot-password', async (req, res) => {
     // Gửi mail thông báo mật khẩu mới
     if (transporter) {
       const mailOptions = {
-        from: process.env.SMTP_FROM || `"Đồ Sơn" <${process.env.SMTP_USER}>`,
+        from: process.env.SMTP_FROM || `"Khoinghiep.today" <${process.env.SMTP_USER}>`,
         to: email,
         bcc: process.env.SMTP_BCC || undefined,
-        subject: '[Đồ Sơn] Khôi phục mật khẩu tài khoản',
+        subject: '[Khoinghiep.today] Khôi phục mật khẩu tài khoản',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-            <h2 style="color: #1E88E5; border-bottom: 2px solid #1E88E5; padding-bottom: 10px;">Cấp lại mật khẩu thành công!</h2>
+            <h2 style="color: #4F46E5; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">Cấp lại mật khẩu thành công!</h2>
             <p>Xin chào <strong>${member.name}</strong>,</p>
-            <p>Chúng tôi nhận được yêu cầu khôi phục mật khẩu của bạn cho tài khoản kết nối doanh nghiệp trên <strong>Đồ Sơn</strong>.</p>
+            <p>Chúng tôi nhận được yêu cầu khôi phục mật khẩu của bạn cho tài khoản trên <strong>Khoinghiep.today</strong>.</p>
             <p>Mật khẩu mới của bạn đã được khởi tạo ngẫu nhiên như sau:</p>
             <div style="background-color: #f5f5f5; padding: 15px; border-radius: 6px; margin: 20px 0; text-align: center;">
-              <span style="font-family: monospace; font-size: 20px; font-weight: bold; color: #1E88E5; letter-spacing: 2px;">${newPassword}</span>
+              <span style="font-family: monospace; font-size: 20px; font-weight: bold; color: #4F46E5; letter-spacing: 2px;">${newPassword}</span>
             </div>
             <p style="color: #d32f2f;"><strong>Khuyến cáo bảo mật:</strong> Vui lòng đăng nhập ngay bằng mật khẩu tạm thời này và truy cập vào Dashboard thành viên để đổi lại mật khẩu cá nhân của bạn.</p>
-            <p>Trân trọng,<br/>Ban Quản Trị Đồ Sơn</p>
-            <p style="margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 15px; font-size: 12px; color: #999;">Đây là email tự động từ hệ thống Đồ Sơn. Vui lòng không trả lời thư này.</p>
+            <p>Trân trọng,<br/>Ban Quản Trị Khoinghiep.today — DISC Vietnam</p>
+            <p style="margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 15px; font-size: 12px; color: #999;">Đây là email tự động từ hệ thống Khoinghiep.today. Vui lòng không trả lời thư này.</p>
           </div>
         `
       };
@@ -1061,20 +1061,20 @@ app.post('/api/members', async (req, res) => {
     // Gửi email thông báo đăng ký
     if (transporter) {
       const mailOptions = {
-        from: process.env.SMTP_FROM || `"Đồ Sơn" <${process.env.SMTP_USER}>`,
+        from: process.env.SMTP_FROM || `"Khoinghiep.today" <${process.env.SMTP_USER}>`,
         to: email,
         bcc: process.env.SMTP_BCC || undefined,
-        subject: '[Đồ Sơn] Đăng ký tài khoản thành công',
+        subject: '[Khoinghiep.today] Đăng ký tài khoản thành công',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-            <h2 style="color: #1E88E5; border-bottom: 2px solid #1E88E5; padding-bottom: 10px;">Gia nhập Đồ Sơn Connection thành công!</h2>
+            <h2 style="color: #4F46E5; border-bottom: 2px solid #4F46E5; padding-bottom: 10px;">Gia nhập Hệ sinh thái Khoinghiep.today thành công!</h2>
             <p>Xin chào <strong>${name}</strong>,</p>
-            <p>Cảm ơn doanh nghiệp của bạn đã đăng ký tài khoản hội viên trên nền tảng kết nối giao thương <strong>Đồ Sơn</strong>.</p>
+            <p>Cảm ơn doanh nghiệp / dự án của bạn đã đăng ký tài khoản hội viên trên nền tảng đổi mới sáng tạo và hỗ trợ khởi nghiệp <strong>Khoinghiep.today (DISC Vietnam)</strong>.</p>
             <div style="background-color: #f5f5f5; padding: 15px; border-radius: 6px; margin: 15px 0;">
               <h4 style="margin-top: 0; color: #333;">Thông tin đăng ký của bạn:</h4>
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
-                  <td style="padding: 4px 0; color: #666; width: 150px;"><strong>Doanh nghiệp:</strong></td>
+                  <td style="padding: 4px 0; color: #666; width: 150px;"><strong>Đơn vị / Dự án:</strong></td>
                   <td style="padding: 4px 0; color: #333;">${name}</td>
                 </tr>
                 <tr>
@@ -1082,14 +1082,14 @@ app.post('/api/members', async (req, res) => {
                   <td style="padding: 4px 0; color: #333;">${email}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 4px 0; color: #666;"><strong>Gói hội viên:</strong></td>
+                  <td style="padding: 4px 0; color: #666;"><strong>Gói thành viên:</strong></td>
                   <td style="padding: 4px 0; color: #333;">${tier || 'Silver'}</td>
                 </tr>
               </table>
             </div>
-            <p>Hồ sơ đăng ký của bạn hiện đang ở trạng thái <strong>Chờ duyệt (Pending)</strong>. Ban quản trị sẽ nhanh chóng kiểm tra thông tin và phê duyệt tài khoản của bạn trong thời gian sớm nhất.</p>
-            <p>Khi hồ sơ được phê duyệt, bạn sẽ nhận được thông báo tiếp theo và có thể đăng nhập để sử dụng đầy đủ các tính năng giao thương và trợ lý AI.</p>
-            <p style="margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 15px; font-size: 12px; color: #999;">Đây là email tự động từ hệ thống Đồ Sơn. Vui lòng không trả lời thư này.</p>
+            <p>Hồ sơ đăng ký của bạn hiện đang ở trạng thái <strong>Chờ duyệt (Pending)</strong>. Ban quản trị DISC Vietnam sẽ nhanh chóng kiểm tra thông tin và phê duyệt tài khoản của bạn trong thời gian sớm nhất.</p>
+            <p>Khi hồ sơ được phê duyệt, bạn sẽ nhận được thông báo tiếp theo và có thể đăng nhập để sử dụng đầy đủ các tính năng kết nối giao thương và Lõi Trợ lý AI Multi-Agent.</p>
+            <p style="margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 15px; font-size: 12px; color: #999;">Đây là email tự động từ hệ thống Khoinghiep.today. Vui lòng không trả lời thư này.</p>
           </div>
         `
       };
@@ -1756,7 +1756,7 @@ app.post('/api/chat', anyAuthMiddleware, async (req, res) => {
       // Đọc system_instruction từ ai_config
       const [aiConfigs] = await db.query("SELECT system_instruction FROM ai_config WHERE is_active = 1 LIMIT 1");
       const systemInstruction = (aiConfigs[0] && aiConfigs[0].system_instruction) || 
-        "Bạn là trợ lý AI của Đồ Sơn — nền tảng hội viên doanh nghiệp Việt Nam. Trả lời ngắn gọn, thân thiện bằng tiếng Việt.";
+        "Bạn là Lõi AI Multi-Agent của Khoinghiep.today — Hệ sinh thái đổi mới sáng tạo và hỗ trợ khởi nghiệp dành cho doanh nhân họ Đỗ (Đậu) Việt Nam và đối tác (DISC Vietnam). Bạn đóng các vai trò: 1. AI Giới thiệu & Tra cứu (nền tảng, thành viên, dự án); 2. AI Kết nối (gợi ý đối tác, nhà đầu tư, cố vấn); 3. AI Quảng bá (viết bài giới thiệu doanh nghiệp/sản phẩm); 4. AI Hỗ trợ khởi nghiệp (thẩm định ý tưởng, xây dựng mô hình kinh doanh, tài chính, pitch deck, hồ sơ gọi vốn). Trả lời chuyên nghiệp, nhiệt tình, chuẩn xác bằng tiếng Việt.";
 
       const [members] = await db.query("SELECT name,tier,industry,description,email,phone FROM members WHERE status='approved'");
       const [posts]   = await db.query("SELECT p.title,p.type,p.contact_info,m.name AS company FROM posts p JOIN members m ON p.member_id=m.id WHERE p.status='approved' ORDER BY p.created_at DESC LIMIT 10");

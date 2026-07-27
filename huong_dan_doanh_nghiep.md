@@ -1,6 +1,6 @@
 ﻿# Hướng dẫn Doanh nghiệp: Đăng ký & Sử dụng các tính năng BizHub AI
 
-Chào mừng doanh nghiệp của bạn tham gia vào mạng lưới BizHub Đồ Sơn - nền tảng kết nối giao thương, chia sẻ cơ hội hợp tác kinh tế và ứng dụng Trợ lý AI chuyên sâu cho doanh nghiệp.
+Chào mừng doanh nghiệp của bạn tham gia vào mạng lưới Khoinghiep.today - nền tảng kết nối giao thương, chia sẻ cơ hội hợp tác kinh tế và ứng dụng Trợ lý AI chuyên sâu cho doanh nghiệp.
 
 #### Ảnh demo toàn bộ trang chủ web
 

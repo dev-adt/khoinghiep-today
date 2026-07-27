@@ -1,7 +1,7 @@
 {
-  "name": "doson-today",
+  "name": "khoinghiep-today",
   "version": "2.0.0",
-  "description": "Đồ Sơn Today — Hệ thống quản lý hội viên doanh nghiệp với AI + MySQL",
+  "description": "KHOINGHIEP.TODAY — Hệ sinh thái đổi mới sáng tạo và khởi nghiệp dành cho doanh nhân họ Đỗ (Đậu) Việt Nam và những người bạn",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

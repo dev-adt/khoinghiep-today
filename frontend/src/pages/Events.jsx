@@ -187,7 +187,7 @@ export const Events = () => {
                     </div>
                     <h3 className="opp-title" style={{ minHeight: 'unset', marginBottom: '8px', fontSize: '15px', color: 'var(--text-primary)' }}>{e.title}</h3>
                     <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-calendar"></i> Ngày: {dateStr}</div>
-                    <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-users"></i> Tổ chức: {e.organizer || 'Đồ Sơn'}</div>
+                    <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginBottom: '4px' }}><i className="ti ti-users"></i> Tổ chức: {e.organizer || 'Khoinghiep.today'}</div>
                     {!token && (
                       <div style={{ fontSize: '11px', color: 'var(--rose)', marginTop: '8px', background: 'rgba(244,63,94,0.05)', padding: '6px', borderRadius: '4px', border: '1px dashed rgba(244,63,94,0.15)' }}>
                         <i className="ti ti-lock"></i> {t('login_required_location')}
@@ -224,7 +224,7 @@ export const Events = () => {
               </div>
               <div style={{ marginBottom: '14px' }}>
                 <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--amber-dark)', fontWeight: 700 }}>{t('label_organizer')}</span>
-                <div style={{ fontSize: '13px', color: 'var(--text-primary)', marginTop: '2px' }}>{selectedEvent.organizer || 'Đồ Sơn'}</div>
+                <div style={{ fontSize: '13px', color: 'var(--text-primary)', marginTop: '2px' }}>{selectedEvent.organizer || 'Khoinghiep.today'}</div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
                 <div>

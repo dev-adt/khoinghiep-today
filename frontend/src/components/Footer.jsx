@@ -14,7 +14,7 @@ export const Footer = () => {
               <div style={{ width: '34px', height: '34px', borderRadius: '8px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>
                 <img src="/favicon.png" alt="Logo" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
               </div>
-              Đồ Sơn
+              Khoinghiep.today
             </div>
             <p style={{ lineHeight: '1.7', marginBottom: '1.5rem', color: '#93B4D4' }}>
               {t('footer_desc')}
@@ -40,10 +40,12 @@ export const Footer = () => {
             <a href="/#tiers" style={{ display: 'block', padding: '6px 0', color: '#93B4D4', textDecoration: 'none', transition: 'color 0.2s' }}>{t('menu_tiers')}</a>
           </div>
           <div>
-            <h4 style={{ color: '#E2F0FF', fontFamily: 'var(--font-title)', fontSize: '14px', fontWeight: '600', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('footer_contact')}</h4>
-            <div style={{ padding: '6px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-mail"></i> info@adtgroup.net</div>
-            <div style={{ padding: '6px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-phone"></i> 0986354152</div>
-            <div style={{ padding: '6px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-map-pin"></i> 26 TT23 Khu Đô Thị Văn Phú, Phường Kiến Hưng, Hà Nội, Việt Nam</div>
+            <h4 style={{ color: '#E2F0FF', fontFamily: 'var(--font-title)', fontSize: '14px', fontWeight: '600', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('footer_contact')}</h4>
+            <div style={{ color: '#E2F0FF', fontWeight: 600, marginBottom: '8px', fontSize: '11px', lineHeight: '1.4' }}>TRUNG TÂM ĐỔI MỚI, SÁNG TẠO VÀ KHỞI NGHIỆP HỌ ĐỖ (ĐẬU) VIỆT NAM</div>
+            <div style={{ padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-world"></i> https://khoinghiep.today</div>
+            <div style={{ padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-mail"></i> info@khoinghiep.today</div>
+            <div style={{ padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px', color: '#93B4D4' }}><i className="ti ti-phone"></i> +84.(0)862787658</div>
+            <div style={{ padding: '4px 0', display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#93B4D4' }}><i className="ti ti-map-pin" style={{ marginTop: '2px' }}></i> HT2 - Khu Biệt Thự Vườn Cam, xã Sơn Đồng, thành phố Hà Nội</div>
           </div>
         </div>
         

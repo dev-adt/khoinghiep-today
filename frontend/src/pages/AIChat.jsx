@@ -20,12 +20,12 @@ export const AIChat = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [aiConfig, setAiConfig] = useState({ provider: 'Gemini', model: 'gemini-1.5-flash' });
   const [selectedModelOverride, setSelectedModelOverride] = useState(() => {
-    return localStorage.getItem('doson_chat_model_override') || '';
+    return localStorage.getItem('khoinghiep_chat_model_override') || '';
   });
 
   const handleModelOverrideChange = (val) => {
     setSelectedModelOverride(val);
-    localStorage.setItem('doson_chat_model_override', val);
+    localStorage.setItem('khoinghiep_chat_model_override', val);
   };
 
   const messagesEndRef = useRef(null);
