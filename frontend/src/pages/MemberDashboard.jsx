@@ -606,7 +606,7 @@ export const MemberDashboard = () => {
             {/* Thẻ Đổi Mật Khẩu Riêng Biệt */}
             <div className="dash-card" style={{ marginTop: '1.5rem' }}>
               <div className="card-title">
-                <i className="ti ti-key"></i> Đổi mật khẩu bảo mật
+                <i className="ti ti-key"></i> {t('pwd_card_title')}
               </div>
 
               {passMessage.text && (
@@ -623,7 +623,7 @@ export const MemberDashboard = () => {
               <form onSubmit={handlePasswordSubmit}>
                 <div className="form-grid" style={{ gridTemplateColumns: '1fr' }}>
                   <div className="fg" style={{ marginBottom: '1rem' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>Mật khẩu hiện tại (cũ) <span style={{ color: 'var(--rose)' }}>*</span></label>
+                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>{t('label_current_pwd')} <span style={{ color: 'var(--rose)' }}>*</span></label>
                     <div style={{ position: 'relative' }}>
                       <input 
                         type={showPassMap.old ? "text" : "password"} 
@@ -643,14 +643,14 @@ export const MemberDashboard = () => {
                   </div>
 
                   <div className="fg" style={{ marginBottom: '1rem' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>Mật khẩu mới <span style={{ color: 'var(--rose)' }}>*</span></label>
+                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>{t('label_new_pwd')} <span style={{ color: 'var(--rose)' }}>*</span></label>
                     <div style={{ position: 'relative' }}>
                       <input 
                         type={showPassMap.new ? "text" : "password"} 
                         value={passwordForm.newPassword} 
                         onChange={(e) => setPasswordForm(prev => ({ ...prev, newPassword: e.target.value }))} 
                         required 
-                        placeholder="Tối thiểu 8 ký tự"
+                        placeholder={t('placeholder_min_pwd')}
                         style={{ width: '100%', padding: '9px 40px 9px 12px', borderRadius: '8px', border: '1px solid #D8E2EF', fontSize: '13px', outline: 'none' }}
                       />
                       <button 
@@ -664,14 +664,14 @@ export const MemberDashboard = () => {
                   </div>
 
                   <div className="fg" style={{ marginBottom: '1rem' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>Xác nhận mật khẩu mới <span style={{ color: 'var(--rose)' }}>*</span></label>
+                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '12.5px', fontWeight: 600 }}>{t('label_confirm_pwd')} <span style={{ color: 'var(--rose)' }}>*</span></label>
                     <div style={{ position: 'relative' }}>
                       <input 
                         type={showPassMap.confirm ? "text" : "password"} 
                         value={passwordForm.confirmNewPassword} 
                         onChange={(e) => setPasswordForm(prev => ({ ...prev, confirmNewPassword: e.target.value }))} 
                         required 
-                        placeholder="Nhập lại mật khẩu mới"
+                        placeholder={t('placeholder_confirm_pwd')}
                         style={{ width: '100%', padding: '9px 40px 9px 12px', borderRadius: '8px', border: '1px solid #D8E2EF', fontSize: '13px', outline: 'none' }}
                       />
                       <button 
@@ -687,7 +687,7 @@ export const MemberDashboard = () => {
 
                 <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'flex-end' }}>
                   <button type="submit" className="btn btn-primary" disabled={updatingPassword}>
-                    {updatingPassword ? <><i className="ti ti-loader animate-spin"></i> Đang đổi...</> : <><i className="ti ti-key"></i> Đổi mật khẩu</>}
+                    {updatingPassword ? <><i className="ti ti-loader animate-spin"></i> {t('btn_changing_pwd')}</> : <><i className="ti ti-key"></i> {t('btn_change_pwd')}</>}
                   </button>
                 </div>
               </form>

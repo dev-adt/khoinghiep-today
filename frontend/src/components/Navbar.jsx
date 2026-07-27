@@ -65,7 +65,7 @@ export const Navbar = () => {
         </div>
 
         <Link to="/events" className="nav-link">{t('menu_events')}</Link>
-        <Link to="/training" className="nav-link">Đào tạo & Tri thức</Link>
+        <Link to="/training" className="nav-link">{t('menu_training')}</Link>
         <Link to="/ai-chat" className="nav-link">{t('menu_ai')}</Link>
         <Link to="/guide" className="nav-link">{t('menu_guide')}</Link>
       </div>

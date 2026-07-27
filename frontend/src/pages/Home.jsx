@@ -305,9 +305,9 @@ export const Home = () => {
         {/* MULTI-AGENT AI ENGINE SECTION */}
         <section id="ai-engine" style={{ marginBottom: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>Trái tim của hệ sinh thái</div>
-            <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '32px', fontWeight: 700, color: 'var(--text-primary)' }}>Lõi Trợ Lý Trí Tuệ Nhân Tạo Multi-Agent</h2>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', maxWidth: '680px', margin: '8px auto 0' }}>Khoinghiep.today tích hợp mạng lưới trợ lý AI chuyên trách phối hợp để phục vụ toàn diện cho thành viên, doanh nghiệp và dự án khởi nghiệp.</p>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>{t('ai_engine_badge')}</div>
+            <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '32px', fontWeight: 700, color: 'var(--text-primary)' }}>{t('ai_engine_title')}</h2>
+            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', maxWidth: '680px', margin: '8px auto 0' }}>{t('ai_engine_desc')}</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
@@ -315,32 +315,32 @@ export const Home = () => {
               <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(79, 70, 229, 0.1)', color: '#4F46E5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
                 <i className="ti ti-info-circle"></i>
               </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Giới thiệu & Tra cứu</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Giới thiệu hệ sinh thái DISC Vietnam & Khoinghiep.today; Hướng dẫn quyền lợi thành viên; Tra cứu thông tin chuyên gia, doanh nghiệp, tin tức & sự kiện.</p>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{t('agent_1_name')}</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>{t('agent_1_desc')}</p>
             </div>
 
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.2)', textAlign: 'left' }}>
               <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.1)', color: '#10B981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
                 <i className="ti ti-git-pull-request"></i>
               </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Kết nối thành viên</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Phân tích nhu cầu hợp tác; Gợi ý đối tác, khách hàng, nhà cung cấp hoặc nhà đầu tư tiềm năng; Kết nối người có ý tưởng với người có nguồn lực.</p>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{t('agent_2_name')}</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>{t('agent_2_desc')}</p>
             </div>
 
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.2)', textAlign: 'left' }}>
               <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(245, 158, 11, 0.1)', color: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
                 <i className="ti ti-speakerphone"></i>
               </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Quảng bá doanh nghiệp</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Hỗ trợ soạn thảo hồ sơ năng lực doanh nghiệp, viết bài giới thiệu sản phẩm/dịch vụ, biên dịch đa ngôn ngữ và đề xuất chiến dịch truyền thông.</p>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{t('agent_3_name')}</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>{t('agent_3_desc')}</p>
             </div>
 
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(6, 182, 212, 0.2)', textAlign: 'left' }}>
               <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(6, 182, 212, 0.1)', color: '#06B6D4', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', marginBottom: '14px' }}>
                 <i className="ti ti-rocket"></i>
               </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>AI Hỗ trợ Khởi nghiệp</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>Đồng hành đánh giá ý tưởng, xác định mô hình kinh doanh, lập kế hoạch tài chính, xây dựng Pitch Deck chuẩn bị gọi vốn và luyện tập phản biện.</p>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{t('agent_4_name')}</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>{t('agent_4_desc')}</p>
             </div>
           </div>
         </section>

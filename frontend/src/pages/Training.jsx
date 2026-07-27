@@ -98,13 +98,13 @@ export const Training = () => {
         {/* HEADER SECTION */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
-            <i className="ti ti-school"></i> Nâng cao năng lực doanh nhân & thanh niên khởi nghiệp
+            <i className="ti ti-school"></i> {t('training_badge')}
           </div>
           <h1 style={{ fontFamily: 'var(--font-title)', fontSize: '36px', fontWeight: 800, color: 'var(--text-primary)' }}>
-            Chương Trình Đào Tạo & Thư Viện Tri Thức
+            {t('training_title')}
           </h1>
           <p style={{ fontSize: '14px', color: 'var(--text-secondary)', maxWidth: '700px', margin: '10px auto 0', lineHeight: '1.6' }}>
-            Hệ thống chương trình đào tạo thiết thực do Trung tâm Đổi mới, Sáng tạo và Khởi nghiệp Họ Đỗ (Đậu) Việt Nam (DISC Vietnam) tổ chức, tập trung ứng dụng AI, Chuyển đổi số, Kỹ năng gọi vốn và Quản trị doanh nghiệp bền vững.
+            {t('training_desc')}
           </p>
 
           {/* TABS SWITCHER */}
@@ -123,7 +123,7 @@ export const Training = () => {
                 transition: 'var(--transition)'
               }}
             >
-              <i className="ti ti-certificate"></i> Khóa học Thực chiến ({courses.length})
+              <i className="ti ti-certificate"></i> {typeof t('tab_courses_count') === 'function' ? t('tab_courses_count')(courses.length) : `Khóa học (${courses.length})`}
             </button>
             <button 
               onClick={() => setActiveTab('library')}
@@ -139,7 +139,7 @@ export const Training = () => {
                 transition: 'var(--transition)'
               }}
             >
-              <i className="ti ti-books"></i> Thư viện Tri thức ({libraryResources.length})
+              <i className="ti ti-books"></i> {typeof t('tab_library_count') === 'function' ? t('tab_library_count')(libraryResources.length) : `Thư viện (${libraryResources.length})`}
             </button>
           </div>
         </div>
@@ -171,7 +171,7 @@ export const Training = () => {
                   className="btn btn-primary" 
                   style={{ width: '100%', justifyContent: 'center', padding: '10px', fontSize: '13px' }}
                 >
-                  <i className="ti ti-pencil"></i> Đăng ký tham gia ngay
+                  <i className="ti ti-pencil"></i> {t('btn_register_course')}
                 </button>
               </div>
             ))}
@@ -189,19 +189,19 @@ export const Training = () => {
                   </div>
                   <div>
                     <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--amber-dark)', textTransform: 'uppercase' }}>{res.category}</div>
-                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Định dạng: {res.format}</div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Format: {res.format}</div>
                   </div>
                 </div>
 
                 <h3 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px', lineHeight: '1.4' }}>{res.title}</h3>
                 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border)', paddingTop: '12px', marginTop: '14px' }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}><i className="ti ti-download"></i> {res.downloads} lượt tải</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}><i className="ti ti-download"></i> {typeof t('downloads_count') === 'function' ? t('downloads_count')(res.downloads) : `${res.downloads}`}</span>
                   <button 
                     onClick={() => alert(`Tải xuống miễn phí tài liệu: "${res.title}" thành công!`)}
                     style={{ background: 'rgba(220,38,38,0.1)', color: 'var(--primary)', border: '1px solid rgba(220,38,38,0.2)', padding: '4px 12px', borderRadius: '6px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
                   >
-                    Tải về <i className="ti ti-download"></i>
+                    {t('btn_download')} <i className="ti ti-download"></i>
                   </button>
                 </div>
               </div>
@@ -216,33 +216,33 @@ export const Training = () => {
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(8,14,30,0.85)', backdropFilter: 'blur(8px)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
           <div className="glass-card" style={{ width: '100%', maxWidth: '500px', padding: '2rem', borderRadius: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '10px' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)' }}>Đăng ký Khóa đào tạo</h3>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)' }}>{t('modal_register_title')}</h3>
               <button onClick={() => setSelectedCourse(null)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '18px', cursor: 'pointer' }}><i className="ti ti-x"></i></button>
             </div>
 
             {registerSuccess ? (
               <div style={{ textAlign: 'center', padding: '2rem 0' }}>
                 <i className="ti ti-circle-check" style={{ fontSize: '48px', color: 'var(--emerald)', display: 'block', marginBottom: '12px' }}></i>
-                <h4 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>Đăng ký thành công!</h4>
-                <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Ban thư ký Đào tạo DISC Vietnam sẽ liên hệ xác nhận thông tin và gửi link tham gia qua email cho bạn.</p>
-                <button onClick={() => setSelectedCourse(null)} className="btn btn-primary" style={{ marginTop: '1.5rem', padding: '8px 24px' }}>Hoàn tất</button>
+                <h4 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{t('modal_success_title')}</h4>
+                <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{t('modal_success_desc')}</p>
+                <button onClick={() => setSelectedCourse(null)} className="btn btn-primary" style={{ marginTop: '1.5rem', padding: '8px 24px' }}>{t('btn_complete')}</button>
               </div>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setRegisterSuccess(true); }}>
-                <div style={{ marginBottom: '12px', fontSize: '13px', color: 'var(--primary)', fontWeight: 600 }}>Khóa học: {selectedCourse.title}</div>
+                <div style={{ marginBottom: '12px', fontSize: '13px', color: 'var(--primary)', fontWeight: 600 }}>{selectedCourse.title}</div>
                 <div style={{ marginBottom: '12px' }}>
-                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>Họ và tên *</label>
+                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>{t('label_full_name')}</label>
                   <input type="text" required placeholder="Ví dụ: Đỗ Văn Nam" style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border-strong)', outline: 'none', fontSize: '13px' }} />
                 </div>
                 <div style={{ marginBottom: '12px' }}>
-                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>Email nhận bài học *</label>
+                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>{t('label_email_study')}</label>
                   <input type="email" required placeholder="name@company.com" style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border-strong)', outline: 'none', fontSize: '13px' }} />
                 </div>
                 <div style={{ marginBottom: '16px' }}>
-                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>Số điện thoại / Zalo *</label>
+                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, marginBottom: '4px', textTransform: 'uppercase' }}>{t('label_phone_zalo')}</label>
                   <input type="tel" required placeholder="0987654321" style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border-strong)', outline: 'none', fontSize: '13px' }} />
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '10px' }}>Gửi xác nhận đăng ký</button>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '10px' }}>{t('btn_submit_register')}</button>
               </form>
             )}
           </div>
