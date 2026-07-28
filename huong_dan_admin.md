@@ -5,10 +5,7 @@ Tài liệu này hướng dẫn Admin cách sử dụng các công cụ quản t
 ---
 
 ## 1. Truy cập trang quản trị
-- Đăng nhập tài khoản Admin thông qua cổng đăng nhập quản trị dành riêng (`/login`).
-- **Danh sách tài khoản Quản trị viên (Admin)**:
-  - **Tài khoản chính**: `info@khoinghiep.today` (hoặc `info`) | Mật khẩu: `123@456Happy`
-  - **Tài khoản dự phòng**: `admin` | Mật khẩu: `Admin@123`
+- Đăng nhập tài khoản Admin thông qua cổng đăng nhập quản trị dành riêng.
 - Truy cập Dashboard Admin để quản lý 3 phân mục chính:
   1. **Quản lý Hội viên** (`/admin/members`)
   2. **Quản lý Bài đăng** (`/admin/posts`)
