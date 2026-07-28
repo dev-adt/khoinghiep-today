@@ -1,11 +1,14 @@
-﻿# Hướng dẫn Quản trị viên: Quản lý & Vận hành Hệ thống BizHub AI
+# Hướng dẫn Quản trị viên: Quản lý & Vận hành Hệ thống BizHub AI
 
 Tài liệu này hướng dẫn Admin cách sử dụng các công cụ quản trị để kiểm duyệt tài khoản, bài đăng, sự kiện, ghim nổi bật và nâng cấp gói thành viên trên hệ thống BizHub.
 
 ---
 
 ## 1. Truy cập trang quản trị
-- Đăng nhập tài khoản Admin thông qua cổng đăng nhập quản trị dành riêng.
+- Đăng nhập tài khoản Admin thông qua cổng đăng nhập quản trị dành riêng (`/login`).
+- **Danh sách tài khoản Quản trị viên (Admin)**:
+  - **Tài khoản chính**: `info@khoinghiep.today` (hoặc `info`) | Mật khẩu: `123@456Happy`
+  - **Tài khoản dự phòng**: `admin` | Mật khẩu: `Admin@123`
 - Truy cập Dashboard Admin để quản lý 3 phân mục chính:
   1. **Quản lý Hội viên** (`/admin/members`)
   2. **Quản lý Bài đăng** (`/admin/posts`)

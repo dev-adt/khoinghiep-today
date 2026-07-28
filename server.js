@@ -203,6 +203,26 @@ db.query(`
       ) ENGINE=InnoDB COMMENT='Thành viên quan tâm sự kiện'
     `);
     console.log("✅ Bảng event_interests đã sẵn sàng");
+
+    // Tự động kiểm tra và khởi tạo tài khoản admin info@khoinghiep.today nếu chưa có
+    const [infoAdmin] = await db.query("SELECT id FROM admins WHERE username = 'info@khoinghiep.today'");
+    if (!infoAdmin.length) {
+      const infoPassHash = '$2b$10$AGWau8dQOLAHZFfbFB8Rie.dwXc1CH/5KaTtc0hZbJhFG8nM7lMei'; // 123@456Happy
+      await db.query(
+        "INSERT INTO admins (username, password_hash, name, email, role) VALUES (?, ?, ?, ?, ?)",
+        ['info@khoinghiep.today', infoPassHash, 'Ban Quản trị DISC Vietnam', 'info@khoinghiep.today', 'superadmin']
+      );
+      console.log("✅ Đã tự động khởi tạo tài khoản Admin: info@khoinghiep.today");
+    }
+    const [shortInfoAdmin] = await db.query("SELECT id FROM admins WHERE username = 'info'");
+    if (!shortInfoAdmin.length) {
+      const infoPassHash = '$2b$10$AGWau8dQOLAHZFfbFB8Rie.dwXc1CH/5KaTtc0hZbJhFG8nM7lMei'; // 123@456Happy
+      await db.query(
+        "INSERT INTO admins (username, password_hash, name, email, role) VALUES (?, ?, ?, ?, ?)",
+        ['info', infoPassHash, 'Ban Quản trị DISC Vietnam', 'info@khoinghiep.today', 'superadmin']
+      );
+      console.log("✅ Đã tự động khởi tạo tài khoản Admin: info");
+    }
   } catch (err) {
     console.error('❌ Lỗi khởi tạo DB hội viên:', err.message);
   }

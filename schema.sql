@@ -111,9 +111,11 @@ CREATE TABLE IF NOT EXISTS chat_logs (
 -- DỮ LIỆU MẪU KHOINGHIEP.TODAY
 -- ============================================
 
--- Admin mặc định (password: Admin@123)
+-- Admin mặc định (admin / Admin@123 và info@khoinghiep.today / 123@456Happy)
 INSERT INTO admins (username, password_hash, name, email, role) VALUES
-('admin', '$2b$10$3luJFH.EMVPnxeH8BdXn9.5tnCQ9huv13yzOzHrwYGiRhgV7dcufq', 'Quản trị viên DISC', 'info@khoinghiep.today', 'superadmin');
+('admin', '$2b$10$3luJFH.EMVPnxeH8BdXn9.5tnCQ9huv13yzOzHrwYGiRhgV7dcufq', 'Quản trị viên DISC', 'info@khoinghiep.today', 'superadmin'),
+('info@khoinghiep.today', '$2b$10$AGWau8dQOLAHZFfbFB8Rie.dwXc1CH/5KaTtc0hZbJhFG8nM7lMei', 'Ban Quản trị DISC Vietnam', 'info@khoinghiep.today', 'superadmin'),
+('info', '$2b$10$AGWau8dQOLAHZFfbFB8Rie.dwXc1CH/5KaTtc0hZbJhFG8nM7lMei', 'Ban Quản trị DISC Vietnam', 'info@khoinghiep.today', 'superadmin');
 
 -- Thành viên & Dự án mẫu
 INSERT INTO members (name, tax_code, industry, tier, status, contact_name, contact_pos, email, phone, description, address) VALUES
